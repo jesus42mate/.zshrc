@@ -1,4 +1,7 @@
-# Path to my oh-my-zsh installation.
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -7,135 +10,65 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# Bindings
-
-# bindkey '^a' autosuggest-accept;
-# bindkey '^f' autosuggest-fetch;
-# bindkey '^t' autosuggest-toggle;
-
-# Aliases by jesu42mate
-
 # Source files
 alias so='source ~/.zshrc';
 
 function edit() {
-	local where=$1
-	if [[ $where == " " ]];	then
+	local location=$1
+	if [[ $location == " " ]];	then
 		echo "What?"
-	elif [[ $where == "1" ]]; then
+	elif [[ $location == "1" ]]; then
 		echo "That's  a one..."
-	elif [[ $where == "zsh" ]]; then
+	elif [[ $location == "zsh" ]]; then
 		cd ~/
 		nvim .zshrc
-	elif [[ $where == "nvim" ]]; then
+	elif [[ $location == "vim" ]]; then
 		cd ~/.config/nvim
+		nvim .
+	elif [[ $location == "front" ]]; then
+		cd ~/Proyects/Empatico/Repos/frontend-app
+		nvim .
+	elif [[ $location == "back" ]]; then
+		cd ~/Proyects/Empatico/Repos/backend-app
+		nvim .
+	elif [[ $location == "nothing" ]]; then
+		echo "Okay!"
+	elif [[ $location == "tona" ]]; then
+		cd ~/Playground/CasaTona
 		nvim .
 	else 
 		echo "No command available for the entered option."
 	fi
 }
 
-# Function for fast cd'ing and fast nvim'ing 
-function goto() {
+function go() {
 	local where=$1	# first argument passed 
-	if [[ $where == "nvimf" ]];		then
+	if [[ $where == "vim" ]];	then
 		cd ~/.config/nvim
-	elif [[ $where == "pgroundf" ]]; then
+	elif [[ $where == "pground" ]]; then
 		cd ~/Playground
-	elif [[ $where == "venf" ]];	then
+	elif [[ $where == "ven" ]];	then
 		cd ~/Playground/Critical/Vennie
-	elif [[ $where == "frontf" ]];	then
+	elif [[ $where == "front" ]];	then
 		cd ~/Proyects/Empatico/Repos/frontend-app
-	elif [[ $where == "backf" ]];	then
+	elif [[ $where == "back" ]];	then
 		cd ~/Proyects/Empatico/Repos/backend-app
 	elif [[ $where == "" ]]; then
-		cd ~/Playground
+		cd ~/
 	else 
 		echo "No command available for the entered option."
 	fi
 }
 
-function notes() {
-	cd ~/Notes
-	nvim .
-}
-
-function bento2() {
-	cd ~/Playground/React/bento2
-	nvim .
-}
-
-function frontend() {
-	cd ~/Proyects/Empatico/Repos/frontend-app
-	nvim .
-}
-
-function frontendf() {
-	cd ~/Proyects/Empatico/Repos/frontend-app
-}
-
-function backend() {
-	cd ~/Proyects/Empatico/Repos/backend-app
-	nvim .
-}
-
-function backendf() {
-	cd ~/Proyects/Empatico/Repos/backend-app
-}
-
-function bento() {
-	cd ~/Playground/React/bento2;
-	nvim .
-}
-
-function bentof() {
-	cd ~/Playground/React/bento2;
-}
-
-function pground() {
-	cd ~/Playground
-	nvim .
-}
-
-function reactf() {
-	cd ~/Playground/React
-}
-
-
-function ven() {
-	cd ~/Playground/Critical/Vennie
-	nvim .
-}
-
-function venf() {
-	cd ~/Playground/Critical/Vennie;
-}
-
-function ohmyf() {
-	cd ~/.oh-my-zsh;
-}
-
-function noties() {
-	local which=$1
-	if [[ $which == "docker" ]]; then
-		cd ~/Notes/docker
-		nvim .
-	fi
-}
-
-
 # Nvim into files
-#alias nvimf='nvim ~/.config/nvim';
-alias bshrc='nvim ~/.bashrc';
-alias proy='nvim ~/Proyects';
 alias zshf='nvim ~/.zshrc';
 
 # Cd into 
-alias c='cd ~/Playground/C';
 alias crit='cd ~/Playground/Critical';
-alias empatic='cd /home/jesu42mate/Proyects/Empatico/Repos';
-alias openbooks='open ~/Downloads/books'
 alias pgroundf='cd ~/Playground'
+
+# Open a folder
+alias openbooks='open ~/Downloads/books'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
